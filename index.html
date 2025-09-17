@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfólio – Isadora Luiza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --green:#2F4A3B;
+      --green-900:#243c30;
+      --mustard:#F2B34B;
+      --orange:#E07A2B;
+      --cream:#FFF7EA;
+      --ink:#10100E;
+      --card:#1b2b23;
+      --white:#ffffff;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    .tag{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--green);color:var(--cream);font-weight:600;font-size:.82rem}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--mustard);border:0;border-radius:999px;padding:12px 18px;font-weight:700;cursor:pointer}
+    .btn:hover{filter:brightness(.95)}
+    .grid{display:grid;gap:24px}
+    .title-xl{font-family:"Playfair Display",serif;font-size:64px;line-height:.95;letter-spacing:.5px;margin:0}
+    .title-lg{font-family:"Playfair Display",serif;font-size:40px;margin:0 0 12px}
+    .subtitle{font-size:16px;opacity:.9;margin:0}
+    header .nav{display:flex;justify-content:flex-end;gap:16px;align-items:center}
+    header .nav a{padding:10px 12px;border-radius:10px}
+    header .nav a.cta{background:var(--orange);color:#fff;font-weight:700}
+    header .nav a:hover{background:rgba(0,0,0,.06)}
+    header{position:sticky;top:0;background:linear-gradient(0deg, rgba(255,247,234,.0), rgba(255,247,234,.95) 40%);backdrop-filter:saturate(1.2) blur(6px);z-index:10}
+    /* hero */
+    .hero{background:linear-gradient(180deg,var(--green) 0%, var(--green-900) 60%, #000 60%, #000 62%, var(--cream) 62%);color:#fff;padding:48px 0 72px;position:relative;overflow:hidden}
+    .hero .wrap{display:grid;grid-template-columns:1.3fr .9fr;gap:24px;align-items:end}
+    .ghost-word{position:absolute;right:-60px;top:40px;font-family:"Playfair Display",serif;font-weight:800;font-size:140px;line-height:.85;color:rgba(242,179,75,.15);transform:rotate(-6deg);pointer-events:none;user-select:none}
+    .photo-card{
+      background:#fff;
+      border-radius:28px;
+      padding:14px;
+      box-shadow:0 18px 50px rgba(0,0,0,.25), inset 0 0 0 2px rgba(0,0,0,.06);
+      width:min(420px,90%);
+      justify-self:end;
+    }
+    .photo-frame{
+      background:#fff;
+      border-radius:24px;
+      overflow:hidden;
+      aspect-ratio:3/4;
+      position:relative;
+      box-shadow:0 10px 26px rgba(0,0,0,.15);
+      /* “disfarce” do fundo: vinheta sutil nas bordas */
+      mask-image:radial-gradient(circle at 50% 40%, #000 62%, rgba(0,0,0,.85) 90%, transparent 115%);
+    }
+    .photo-frame img{
+      width:100%;height:100%;object-fit:cover;object-position:center;
+      filter:contrast(1.05) saturate(1.03);
+      background:#fff; /* garante fundo branco atrás do JPEG */
+    }
+    .floating-chip{
+      position:absolute;left:-12px;top:-12px;background:var(--mustard);color:#000;padding:6px 12px;border-radius:999px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,.18)
+    }
+    .hero h1{margin:0 0 12px}
+    .hero .lead{font-size:18px;max-width:52ch;opacity:.95}
+    .hero .actions{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    /* sections */
+    section{padding:56px 0}
+    .section-dark{background:var(--green);color:#fff}
+    .card{background:var(--white);border-radius:20px;padding:20px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+    .card.dark{background:var(--card);color:#e9f2ee}
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{padding:8px 12px;border-radius:999px;background:rgba(0,0,0,.08);font-weight:600}
+    .chip.dark{background:rgba(255,255,255,.12)}
+    .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .kpi .box{background:var(--white);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:6px;text-align:center;box-shadow:0 10px 22px rgba(0,0,0,.06)}
+    .kpi .box strong{font-size:28px}
+    .list{display:grid;gap:12px}
+    .item{display:grid;gap:6px;border-left:4px solid var(--mustard);padding-left:12px}
+    .pill{display:inline-block;background:var(--mustard);color:#000;border-radius:999px;padding:4px 10px;font-weight:700;font-size:.82rem}
+    footer{padding:40px 0;background:#000;color:#fff;text-align:center}
+    /* responsive */
+    @media (max-width:960px){
+      .hero .wrap{grid-template-columns:1fr}
+      .photo-card{justify-self:start}
+      .title-xl{font-size:48px}
+    }
+    @media (max-width:560px){
+      .title-xl{font-size:40px}
+      .title-lg{font-size:28px}
+      .kpi{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<header class="wrap" aria-label="Navegação principal">
+  <nav class="nav">
+    <a href="#sobre">Sobre</a>
+    <a href="#experiencia">Experiência</a>
+    <a href="#skills">Skills</a>
+    <a href="#contato" class="cta">Fale comigo</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="topo" aria-label="Destaque">
+  <div class="ghost-word">PORTFOLIO</div>
+  <div class="wrap">
+    <div>
+      <span class="tag">Isadora Luiza — Design & Visual</span>
+      <h1 class="title-xl">Hello,<br> I’m Isadora!</h1>
+      <p class="lead">Crio interfaces e visuais marcantes, unindo estética, clareza e uma pitada de ousadia. Adoro transformar ideias em peças bonitas, organizadas e fáceis de usar.</p>
+      <div class="actions">
+        <a class="btn" href="#work">Ver trabalhos</a>
+        <a class="btn" style="background:var(--orange);color:#fff" href="#contato">Entrar em contato</a>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-frame">
+        <img src="SUA-FOTO-AQUI.jpg" alt="Isadora Luiza — retrato">
+        <span class="floating-chip">Disponível para entrevistas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE / CONTATO -->
+<section id="sobre">
+  <div class="wrap grid" style="grid-template-columns:1.2fr .8fr">
+    <div class="card">
+      <h2 class="title-lg">Sobre mim</h2>
+      <p class="subtitle">Gosto de visuais vibrantes, tipografia expressiva e composições limpas. Trabalho bem com referências e sou rápida para prototipar ideias em algo apresentável.</p>
+      <div class="chips" style="margin-top:10px">
+        <span class="chip">Identidade Visual</span>
+        <span class="chip">UI Colorida</span>
+        <span class="chip">Layouts Responsivos</span>
+        <span class="chip">Criatividade com IA</span>
+      </div>
+    </div>
+
+    <div class="card dark" id="contato">
+      <h2 class="title-lg" style="color:#fff;margin-bottom:8px">Contato</h2>
+      <div class="list">
+        <div class="item">
+          <strong>E-mail</strong>
+          <span>isadora@email.com</span>
+        </div>
+        <div class="item">
+          <strong>LinkedIn</strong>
+          <a href="#" style="color:#fff;opacity:.95">/isadora-luiza</a>
+        </div>
+        <div class="item">
+          <strong>Instagram</strong>
+          <a href="#" style="color:#fff;opacity:.95">@isadora.design</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCAÇÃO & EXPERIÊNCIA -->
+<section class="section-dark" id="experiencia" aria-label="Educação e Experiência">
+  <div class="wrap grid" style="grid-template-columns:1fr 1fr">
+    <div>
+      <h2 class="title-lg">Educação</h2>
+      <div class="list">
+        <div class="item">
+          <div><span class="pill">2023–Atual</span></div>
+          <strong>Universidade Tiradentes (UNIT)</strong>
+          <span>Graduação em área de Tecnologia/Design</span>
+        </div>
+        <div class="item">
+          <div><span class="pill">Cursos</span></div>
+          <strong>UI/UX, Identidade Visual, Prototipagem</strong>
+          <span>Formação complementar</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="title-lg">Experiência</h2>
+      <div class="list">
+        <div class="item">
+          <div><span class="pill">2024–2025</span></div>
+          <strong>Projetos Independentes</strong>
+          <span>Criação de identidades, artes e protótipos visuais conforme briefing.</span>
+          <div class="chips" style="margin-top:6px">
+            <span class="chip dark">#Criatividade</span>
+            <span class="chip dark">#Detalhismo</span>
+            <span class="chip dark">#Organização</span>
+          </div>
+        </div>
+        <div class="item">
+          <div><span class="pill">2023–2024</span></div>
+          <strong>Colaborações Acadêmicas</strong>
+          <span>Layouts, apresentações e UI responsiva para trabalhos de equipe.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" aria-label="Habilidades">
+  <div class="wrap grid" style="grid-template-columns:1fr 1fr">
+    <div class="card">
+      <h2 class="title-lg">Technical Skills</h2>
+      <div class="chips">
+        <span class="chip">Figma</span>
+        <span class="chip">Midjourney</span>
+        <span class="chip">Leonardo AI</span>
+        <span class="chip">Heygen</span>
+        <span class="chip">Veo / Sora / Kling</span>
+      </div>
+      <div style="height:12px"></div>
+      <div class="chips">
+        <span class="chip">Tipografia</span>
+        <span class="chip">Cor & Composição</span>
+        <span class="chip">UI Responsiva</span>
+        <span class="chip">Prototipagem</span>
+      </div>
+    </div>
+    <div class="kpi">
+      <div class="box"><strong>+30</strong><span>peças visuais produzidas</span></div>
+      <div class="box"><strong>10+</strong><span>identidades visuais</span></div>
+      <div class="box"><strong>∞</strong><span>vontade de criar 😄</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ATIVIDADES / HOBBIES -->
+<section aria-label="Atividades e Hobbies">
+  <div class="wrap grid" style="grid-template-columns:1fr 1fr">
+    <div class="card">
+      <h2 class="title-lg">Atividades</h2>
+      <div class="list">
+        <div class="item">
+          <strong>Artes Digitais & UI Colorida</strong>
+          <span>Exploro composições, sombras suaves e cantos arredondados.</span>
+        </div>
+        <div class="item">
+          <strong>Apresentações Visuais</strong>
+          <span>Slides e PDFs com layout limpo e tipografia marcante.</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h2 class="title-lg">Hobbies & Interesses</h2>
+      <div class="chips">
+        <span class="chip">Ilustração</span>
+        <span class="chip">Moda & Estética</span>
+        <span class="chip">UI para Crianças</span>
+        <span class="chip">Fotografia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © 2025 • Isadora Luiza — Portfólio
+  </div>
+</footer>
+
+</body>
+</html>
